@@ -72,9 +72,17 @@
     vm.getInfo(e);
     });
     socket = new Socket();
+
+    socket.on('connect', function(data){
+        onlineFlag = true;
+        console.log(data + ' - connect');
+    });
     socket.on('connect_error', function(data){
         console.log(data + ' - connect_error');
     });
+    socket.on('connect_timeout', function(data){
+        console.log(data + ' - connect_timeout');
+
 </script>
 </body>
 </html>
