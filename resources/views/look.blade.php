@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-{{--<script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>--}}
+<script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}
 <!-- Styles -->
     {{--<link href="'{{asset('css/app.css')}}" rel="stylesheet">--}}
@@ -71,15 +71,15 @@
         console.log('1'+e);
     vm.getInfo(e);
     });
-
-    io.on('connect', function(data){
+    const socket = io('{ Request::getHost() }}:6001');
+    socket.on('connect', function(data){
         onlineFlag = true;
         console.log(data + ' - connect');
     });
-   io.on('connect_error', function(data){
+    socket.on('connect_error', function(data){
         console.log(data + ' - connect_error');
     });
-    io.on('connect_timeout', function(data){
+    socket.on('connect_timeout', function(data){
         console.log(data + ' - connect_timeout');
     });
 </script>
