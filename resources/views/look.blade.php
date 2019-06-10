@@ -82,6 +82,9 @@
     socket.on('connect_timeout', function(data){
         console.log(data + ' - connect_timeout');
     });
+    socket.on('reconnect', function(data){
+        console.log(data + ' - reconnect');
+    });
 </script>
 </body>
 </html>
