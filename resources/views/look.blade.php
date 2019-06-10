@@ -71,7 +71,7 @@
         console.log('1'+e);
     vm.getInfo(e);
     });
-    const socket = io('{ Request::getHost() }}:6001');
+    const socket = io('{{ Request::getHost() }}:6001');
     socket.on('connect', function(data){
         onlineFlag = true;
         console.log(data + ' - connect');
