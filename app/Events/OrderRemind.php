@@ -15,16 +15,16 @@ class OrderRemind implements ShouldBroadcast
 
     public $order;
     public $other_xinxi;
-
+    public $message;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($message)
     {
-
-        $this->order = $order;
+        $this->message=$message;
+        $this->order = $message['order'];
         $this->other_xinxi='这里有其他信息';
     }
 
@@ -35,7 +35,7 @@ class OrderRemind implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return  ['OrderRemind.'.$this->order];
+        return  ['OrderRemind.'.$this->message['channel']];
 //        return  new PrivateChannel('OrderRemind');
     }
 }

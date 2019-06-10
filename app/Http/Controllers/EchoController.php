@@ -25,9 +25,10 @@ class EchoController
         $order = new Order();
         $order->money = $data['money'];
         $order->save();
-        $order->channel=$data['channel'];
-
-        event(new OrderRemind($order));
+        $message=array();
+        $message['order']=$order;
+        $message['channel']=$data['channel'];
+        event(new OrderRemind($message));
         return \Illuminate\Support\Facades\Response::make('提交完成');
     }
 
