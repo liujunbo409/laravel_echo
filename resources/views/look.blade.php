@@ -82,7 +82,7 @@
     });
     socket.on('connect_timeout', function(data){
         console.log(data + ' - connect_timeout');
-
+    });
 </script>
 </body>
 </html>
