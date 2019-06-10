@@ -35,7 +35,7 @@ class OrderRemind implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return  ['OrderRemind.'.'1'];
+        return  ['OrderRemind.'.$this->order->channel];
 //        return  new PrivateChannel('OrderRemind');
     }
 }

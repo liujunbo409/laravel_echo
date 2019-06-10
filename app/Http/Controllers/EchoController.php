@@ -25,6 +25,7 @@ class EchoController
         $order = new Order();
         $order->money = $data['money'];
         $order->save();
+        $order->channel=$data['channel'];
         $aaa=1;
 //        $new_message['message']='new';
         event(new OrderRemind($order));
