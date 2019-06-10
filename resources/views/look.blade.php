@@ -71,6 +71,10 @@
         console.log('1'+e);
     vm.getInfo(e);
     });
+
+    socket.on('connect_error', function(data){
+        console.log(data + ' - connect_error');
+    });
 </script>
 </body>
 </html>
