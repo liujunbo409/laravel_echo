@@ -72,14 +72,14 @@
     vm.getInfo(e);
     });
 
-    window.io.on('connect', function(data){
+    io.on('connect', function(data){
         onlineFlag = true;
         console.log(data + ' - connect');
     });
-    window.io.on('connect_error', function(data){
+   io.on('connect_error', function(data){
         console.log(data + ' - connect_error');
     });
-    window.io.on('connect_timeout', function(data){
+    io.on('connect_timeout', function(data){
         console.log(data + ' - connect_timeout');
     });
 </script>
