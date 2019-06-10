@@ -68,7 +68,7 @@
 
     Echo.channel('OrderRemind.1')
         .listen('OrderRemind',(e)=>{
-        console.log('1'.e);
+        console.log('1'+e);
     vm.getInfo(e);
     });
 </script>
