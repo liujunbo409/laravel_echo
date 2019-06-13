@@ -35,9 +35,10 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    // console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-    window.location.href = "{{ URL::asset('home')}}";
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    // window.location.href = "{{ URL::asset('home')}}";
 }
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -51,11 +52,7 @@ window.io = require('socket.io-client');
 
 window.Echo = new Echo({
     broadcaster: 'socket.io',
-    // key: '922db1f6a0cb873bb6442e89a29f1dba'
-    // key: process.env.MIX_PUSHER_APP_KEY,
-    // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    // encrypted: true
     host:window.location.hostname+':6001',
-    // csrfToken: token.content
+    csrfToken: token.content
 });
 

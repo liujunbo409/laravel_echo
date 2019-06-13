@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
-<!-- Styles -->
-    {{--<link href="'{{asset('css/app.css')}}" rel="stylesheet">--}}
     <style>
         .alarm{
             background-color:green;
@@ -44,8 +41,6 @@
     </div>
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
-{{--<script src="{{ mix('js/app.js') }}"></script>--}}
-{{--<script src="{{mix('js/app.js')}}"></script>--}}
 <script>
 
     var vm =new Vue({
@@ -79,9 +74,9 @@
     socket.on('connect_error', function(data){
         console.log(data + ' - connect_error');
     });
-//    socket.on('connect_timeout', function(data){
-//        console.log(data + ' - connect_timeout');
-//    });
+    socket.on('connect_timeout', function(data){
+        console.log(data + ' - connect_timeout');
+    });
     socket.on('reconnect', function(data){
         console.log(data + ' - reconnect');
     });
